@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ManagerHR.Models.salida>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Inicio</h2>
+<br />
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           
+            <p>Empleado</p>
+        </th>
+        <th>
+            <p>Tipo</p>    
+        </th>
+        <th>
+            <p>Motivo</p>
+
+        </th>
+        <th>
+            <p>Fecha salida</p>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.empleado.nombre + " " + item.empleado.apellido)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.motivo)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.fesalida)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

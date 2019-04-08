@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Empleado</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="jumbotron bg-dark">
+        <h2 class="text-center text-white">Empleado</h2>
+    </div>
+    <div class="container">
+        <div class="row form-group">
+            @Html.ActionLink("Empleado Activos", "Index", "Departamento", null, new { @class = "btn btn-dark form-control" })
+        </div>
+        <div class="row form-group">
+            @Html.ActionLink("Empleados No Activos", "Index", "Cargo", null, new { @class = "btn btn-dark form-control" })
+        </div>
+
+        <div class="row form-group">
+            @Html.ActionLink("Empleado Entrados", "Index", "Empleado", null, new { @class = "btn btn-dark form-control" })
+        </div>
+
+        <div class="row form-group">
+            @Html.ActionLink("Empleados salidos", "Index", "Empleado", null, new { @class = "btn btn-dark form-control" })
+        </div>
+
+        <div class="row form-group">
+            @Html.ActionLink("Empleado Con permisos", "Index", "Empleado", null, new { @class = "btn btn-dark form-control" })
+        </div>
+
+        <div class="row form-group">
+            @Html.ActionLink("Empleado Con Licencia", "Index", "Empleado", null, new { @class = "btn btn-dark form-control" })
+        </div>
+
+
+
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+﻿@model ManagerHR.Models.vacaciones
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+<br />
+<div>
+    <h4>Vacaciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.comentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comentarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empleado.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empleado.codigo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Atras", "Index")
+</p>

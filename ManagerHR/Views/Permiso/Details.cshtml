@@ -1,0 +1,34 @@
+﻿@model ManagerHR.Models.permiso
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+<br />
+<div>
+    <h4>permiso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.comentario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comentario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empleado.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empleado.codigo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Atras", "Index")
+</p>

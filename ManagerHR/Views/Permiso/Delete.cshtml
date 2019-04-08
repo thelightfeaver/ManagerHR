@@ -1,0 +1,40 @@
+﻿@model ManagerHR.Models.permiso
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+<br />
+<h3>estas seguro que desea eliminar esto?</h3>
+<div>
+    <h4>permiso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.comentario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comentario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empleado.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empleado.codigo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-dark" /> |
+            @Html.ActionLink("Atras", "Index")
+        </div>
+    }
+</div>

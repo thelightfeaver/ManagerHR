@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBRHModelStoreContainer" CdmEntityContainer="DBRHEntities1">
+    <EntitySetMapping Name="cargo">
+      <EntityTypeMapping TypeName="DBRHModel.cargo">
+        <MappingFragment StoreEntitySet="cargo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cargo1" ColumnName="cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departamento">
+      <EntityTypeMapping TypeName="DBRHModel.departamento">
+        <MappingFragment StoreEntitySet="departamento">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empleado">
+      <EntityTypeMapping TypeName="DBRHModel.empleado">
+        <MappingFragment StoreEntitySet="empleado">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="idpertamento" ColumnName="idpertamento" />
+          <ScalarProperty Name="feingreso" ColumnName="feingreso" />
+          <ScalarProperty Name="salario" ColumnName="salario" />
+          <ScalarProperty Name="idcargo" ColumnName="idcargo" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="licencia">
+      <EntityTypeMapping TypeName="DBRHModel.licencia">
+        <MappingFragment StoreEntitySet="licencia">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="desde" ColumnName="desde" />
+          <ScalarProperty Name="hasta" ColumnName="hasta" />
+          <ScalarProperty Name="motivo" ColumnName="motivo" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permiso">
+      <EntityTypeMapping TypeName="DBRHModel.permiso">
+        <MappingFragment StoreEntitySet="permiso">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="desde" ColumnName="desde" />
+          <ScalarProperty Name="hasta" ColumnName="hasta" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="salida">
+      <EntityTypeMapping TypeName="DBRHModel.salida">
+        <MappingFragment StoreEntitySet="salida">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="motivo" ColumnName="motivo" />
+          <ScalarProperty Name="fesalida" ColumnName="fesalida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vacaciones">
+      <EntityTypeMapping TypeName="DBRHModel.vacaciones">
+        <MappingFragment StoreEntitySet="vacaciones">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="desde" ColumnName="desde" />
+          <ScalarProperty Name="hasta" ColumnName="hasta" />
+          <ScalarProperty Name="ano" ColumnName="ano" />
+          <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

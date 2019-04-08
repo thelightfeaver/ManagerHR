@@ -1,0 +1,26 @@
+﻿@model ManagerHR.Models.cargo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Cargo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cargo1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cargo1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Atras", "Index")
+</p>

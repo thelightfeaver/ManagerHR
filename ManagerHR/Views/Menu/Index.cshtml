@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Menu</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="jumbotron bg-dark">
+
+        <h2 class="text-center text-white">Recuros Humanos</h2>
+        <p class="text-center text-white">Programa para manejor de los recursos humanos</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 ">
+                <a href="@Url.Action("Empleado","Menu")">
+                    
+                    <img src='@Url.Content("~/Content/Img/group.png")' class="mx-auto d-block" />
+                    <p class="text-center">Empleado</p>
+                </a>
+
+            </div>
+
+            <div class="col-md-4">
+                <a href="@Url.Action("Salida","Menu")">
+                    <img src="@Url.Content("~/Content/Img/logout.png")" class="mx-auto d-block" />
+                    <p class="text-center">Salida</p>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a>
+                    <img src="@Url.Content("~/Content/Img/note.png")" class="mx-auto d-block" />
+                    <p class="text-center">Informe</p>
+                </a>
+            </div>
+           
+           
+
+
+
+        </div>
+       
+    </div>
+
+</body>
+</html>

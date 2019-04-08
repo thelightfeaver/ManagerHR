@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBRHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cargo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cargo" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="departamento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="nombre" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="empleado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="apellido" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="idpertamento" Type="int" Nullable="false" />
+    <Property Name="feingreso" Type="datetime" Nullable="false" />
+    <Property Name="salario" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="idcargo" Type="int" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBRH.dbo.licencia' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="licencia">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="idempleado" />
+      <PropertyRef Name="desde" />
+      <PropertyRef Name="hasta" />
+      <PropertyRef Name="motivo" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idempleado" Type="int" Nullable="false" />
+    <Property Name="desde" Type="datetime" Nullable="false" />
+    <Property Name="hasta" Type="datetime" Nullable="false" />
+    <Property Name="motivo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="comentario" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBRH.dbo.permiso' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="permiso">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="idempleado" />
+      <PropertyRef Name="desde" />
+      <PropertyRef Name="hasta" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idempleado" Type="int" Nullable="false" />
+    <Property Name="desde" Type="datetime" Nullable="false" />
+    <Property Name="hasta" Type="datetime" Nullable="false" />
+    <Property Name="comentario" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBRH.dbo.salida' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="salida">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="idempleado" />
+      <PropertyRef Name="tipo" />
+      <PropertyRef Name="motivo" />
+      <PropertyRef Name="fesalida" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idempleado" Type="int" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="motivo" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="fesalida" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBRH.dbo.vacaciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vacaciones">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="idempleado" />
+      <PropertyRef Name="desde" />
+      <PropertyRef Name="hasta" />
+      <PropertyRef Name="ano" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idempleado" Type="int" Nullable="false" />
+    <Property Name="desde" Type="date" Nullable="false" />
+    <Property Name="hasta" Type="date" Nullable="false" />
+    <Property Name="ano" Type="int" Nullable="false" />
+    <Property Name="comentarios" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <Association Name="FK__empleado__idcarg__15502E78">
+    <End Role="cargo" Type="Self.cargo" Multiplicity="1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cargo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="idcargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__empleado__idpert__145C0A3F">
+    <End Role="departamento" Type="Self.departamento" Multiplicity="1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamento">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="idpertamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__licencia__idempl__1A14E395">
+    <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
+    <End Role="licencia" Type="Self.licencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="licencia">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__permiso__idemple__182C9B23">
+    <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
+    <End Role="permiso" Type="Self.permiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="permiso">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__salida__idemplea__1BFD2C07">
+    <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
+    <End Role="salida" Type="Self.salida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="salida">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__vacacione__idemp__1DE57479">
+    <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
+    <End Role="vacaciones" Type="Self.vacaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="vacaciones">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBRHModelStoreContainer">
+    <EntitySet Name="cargo" EntityType="Self.cargo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="departamento" EntityType="Self.departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="licencia" EntityType="Self.licencia" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [licencia].[id] AS [id], 
+    [licencia].[idempleado] AS [idempleado], 
+    [licencia].[desde] AS [desde], 
+    [licencia].[hasta] AS [hasta], 
+    [licencia].[motivo] AS [motivo], 
+    [licencia].[comentario] AS [comentario]
+    FROM [dbo].[licencia] AS [licencia]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="permiso" EntityType="Self.permiso" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [permiso].[id] AS [id], 
+    [permiso].[idempleado] AS [idempleado], 
+    [permiso].[desde] AS [desde], 
+    [permiso].[hasta] AS [hasta], 
+    [permiso].[comentario] AS [comentario]
+    FROM [dbo].[permiso] AS [permiso]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="salida" EntityType="Self.salida" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [salida].[id] AS [id], 
+    [salida].[idempleado] AS [idempleado], 
+    [salida].[tipo] AS [tipo], 
+    [salida].[motivo] AS [motivo], 
+    [salida].[fesalida] AS [fesalida]
+    FROM [dbo].[salida] AS [salida]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vacaciones" EntityType="Self.vacaciones" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vacaciones].[id] AS [id], 
+    [vacaciones].[idempleado] AS [idempleado], 
+    [vacaciones].[desde] AS [desde], 
+    [vacaciones].[hasta] AS [hasta], 
+    [vacaciones].[ano] AS [ano], 
+    [vacaciones].[comentarios] AS [comentarios]
+    FROM [dbo].[vacaciones] AS [vacaciones]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__empleado__idcarg__15502E78" Association="Self.FK__empleado__idcarg__15502E78">
+      <End Role="cargo" EntitySet="cargo" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__empleado__idpert__145C0A3F" Association="Self.FK__empleado__idpert__145C0A3F">
+      <End Role="departamento" EntitySet="departamento" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__licencia__idempl__1A14E395" Association="Self.FK__licencia__idempl__1A14E395">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="licencia" EntitySet="licencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__permiso__idemple__182C9B23" Association="Self.FK__permiso__idemple__182C9B23">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="permiso" EntitySet="permiso" />
+    </AssociationSet>
+    <AssociationSet Name="FK__salida__idemplea__1BFD2C07" Association="Self.FK__salida__idemplea__1BFD2C07">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="salida" EntitySet="salida" />
+    </AssociationSet>
+    <AssociationSet Name="FK__vacacione__idemp__1DE57479" Association="Self.FK__vacacione__idemp__1DE57479">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="vacaciones" EntitySet="vacaciones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Empleado</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="jumbotron bg-dark">
+        <h2 class="text-center text-white">Empleado</h2>
+    </div>
+    <div class="container">
+        <div class="row form-group">
+            @Html.ActionLink("Salidas", "Index", "Salida", null, new { @class = "btn btn-dark form-control" })
+        </div>
+        <div class="row form-group">
+            @Html.ActionLink("Vacaciones", "Index", "Vacacion", null, new { @class = "btn btn-dark form-control" })
+        </div>
+
+        <div class="row form-group">
+            @Html.ActionLink("Licencias", "Index", "Lincencia", null, new { @class = "btn btn-dark form-control" })
+        </div>
+
+        <div class="row form-group">
+            @Html.ActionLink("Permisos", "Index", "Permiso", null, new { @class = "btn btn-dark form-control" })
+        </div>
+
+
+
+
+    </div>
+</body>
+</html>
+
