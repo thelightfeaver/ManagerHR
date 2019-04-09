@@ -11,10 +11,7 @@ namespace ManagerHR.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class empleado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,36 +22,15 @@ namespace ManagerHR.Models
             this.salida = new HashSet<salida>();
             this.vacaciones = new HashSet<vacaciones>();
         }
-
+    
         public int id { get; set; }
-        [Required]
-        [DisplayName("Codigo")]
-        [MaxLength(10)]
         public string codigo { get; set; }
-        [Required]
-        [DisplayName("Nombre")]
-        [MaxLength(40)]
         public string nombre { get; set; }
-        [Required]
-        [DisplayName("Apellido")]
-        [MaxLength(40)]
         public string apellido { get; set; }
-        [Required]
-        [DisplayName("Telefono")]
-        [MaxLength(13)]
         public string telefono { get; set; }
-        [Required]
-        [DisplayName("Departamento")]
         public int idpertamento { get; set; }
-        
-        [DisplayName("Fecha de Ingreso")]
-        [Column(TypeName = "DateTime2")]
         public System.DateTime feingreso { get; set; }
-        [DisplayName("Salario")]
-        [Required]
         public decimal salario { get; set; }
-        [Required]
-        [DisplayName("Cargo")]
         public int idcargo { get; set; }
         public int estado { get; set; }
     

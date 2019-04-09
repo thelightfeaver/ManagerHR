@@ -11,8 +11,6 @@ namespace ManagerHR.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel;
     
     public partial class licencia
     {

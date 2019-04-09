@@ -11,22 +11,15 @@ namespace ManagerHR.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class salida
     {
         public int id { get; set; }
         public int idempleado { get; set; }
         public string tipo { get; set; }
         public string motivo { get; set; }
-        [Column(TypeName = "DateTime2")]
         public System.DateTime fesalida { get; set; }
-
+    
         public virtual empleado empleado { get; set; }
-    }
-
-    public enum Tipo
-    {
-
     }
 }

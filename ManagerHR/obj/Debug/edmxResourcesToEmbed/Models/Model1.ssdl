@@ -62,15 +62,9 @@ advertencia 6002: La tabla o vista 'DBRH.dbo.permiso' no tiene definida ninguna 
     <Property Name="hasta" Type="datetime" Nullable="false" />
     <Property Name="comentario" Type="varchar" MaxLength="256" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'DBRH.dbo.salida' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="salida">
     <Key>
       <PropertyRef Name="id" />
-      <PropertyRef Name="idempleado" />
-      <PropertyRef Name="tipo" />
-      <PropertyRef Name="motivo" />
-      <PropertyRef Name="fesalida" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idempleado" Type="int" Nullable="false" />
@@ -171,6 +165,7 @@ advertencia 6002: La tabla o vista 'DBRH.dbo.vacaciones' no tiene definida ningu
     <EntitySet Name="cargo" EntityType="Self.cargo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="departamento" EntityType="Self.departamento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="salida" EntityType="Self.salida" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="licencia" EntityType="Self.licencia" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [licencia].[id] AS [id], 
@@ -189,15 +184,6 @@ advertencia 6002: La tabla o vista 'DBRH.dbo.vacaciones' no tiene definida ningu
     [permiso].[hasta] AS [hasta], 
     [permiso].[comentario] AS [comentario]
     FROM [dbo].[permiso] AS [permiso]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="salida" EntityType="Self.salida" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [salida].[id] AS [id], 
-    [salida].[idempleado] AS [idempleado], 
-    [salida].[tipo] AS [tipo], 
-    [salida].[motivo] AS [motivo], 
-    [salida].[fesalida] AS [fesalida]
-    FROM [dbo].[salida] AS [salida]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vacaciones" EntityType="Self.vacaciones" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

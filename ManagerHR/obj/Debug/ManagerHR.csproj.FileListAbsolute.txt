@@ -69,4 +69,3 @@ C:\Users\pc\Documents\Visual Studio 2017\Projects\ManagerHR\ManagerHR\bin\Entity
 C:\Users\pc\Documents\Visual Studio 2017\Projects\ManagerHR\ManagerHR\bin\EntityFramework.SqlServer.dll
 C:\Users\pc\Documents\Visual Studio 2017\Projects\ManagerHR\ManagerHR\bin\EntityFramework.xml
 C:\Users\pc\Documents\Visual Studio 2017\Projects\ManagerHR\ManagerHR\bin\EntityFramework.SqlServer.xml
-C:\Users\pc\Documents\Visual Studio 2017\Projects\ManagerHR\ManagerHR\obj\Debug\ManagerHR.csprojAssemblyReference.cache

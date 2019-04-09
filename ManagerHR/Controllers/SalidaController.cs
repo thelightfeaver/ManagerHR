@@ -39,7 +39,17 @@ namespace ManagerHR.Controllers
         // GET: Salida/Create
         public ActionResult Create()
         {
-            ViewBag.idempleado = new SelectList(db.empleado, "id", "codigo");
+            var empleado =
+            db.empleado
+              .Where(s => s.estado == 0)
+              .Select(s => new
+              {
+                 id = s.id,
+                  nombre = s.nombre+" "+ s.apellido
+              })
+              .ToList();
+
+            ViewBag.idempleado = new SelectList(empleado, "id", "Nombre");
             return View();
         }
 
@@ -48,10 +58,12 @@ namespace ManagerHR.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,idempleado,tipo,motivo,fesalida")] salida salida,DateTime? Fecha = null)
+        public ActionResult Create([Bind(Include = "id,idempleado,tipo,motivo,fesalida")] salida salida,DateTime? Fecha = null,string tipo = "")
         {
             if (ModelState.IsValid)
             {
+                salida.fesalida = Fecha.Value.Date;
+                salida.tipo = tipo;
                 db.salida.Add(salida);
                 db.SaveChanges();
                 return RedirectToAction("Index");

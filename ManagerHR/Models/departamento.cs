@@ -11,9 +11,7 @@ namespace ManagerHR.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class departamento
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,14 +19,9 @@ namespace ManagerHR.Models
         {
             this.empleado = new HashSet<empleado>();
         }
-
+    
         public int id { get; set; }
-        [Required]
-        [DisplayName("Codigo")]
-        [MaxLength(10)]
         public string codigo { get; set; }
-        [DisplayName("Nombre")]
-        [Required]
         public string nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
